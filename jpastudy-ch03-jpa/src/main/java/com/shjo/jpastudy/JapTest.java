@@ -17,13 +17,15 @@ public class JapTest {
 
         try {
         	entityTransaction.begin(); 
-            Member member = entityManager.find(Member.class, "id2");
+        	Member member = new Member("id2", "shjo", 25);
+        	entityManager.persist(member);
+
+//          logic_cache(entityManager, member);
             
-//            logic_cache(entityManager, member);
-            
-            logic_dirtyChecking(entityManager);
-            
-            
+//          logic_dirtyChecking(entityManager);
+        	
+        	logic_merge(entityManager, member, entityTransaction);
+        	
             entityTransaction.commit();
         } catch (Exception e) {
         	e.printStackTrace();
@@ -34,6 +36,29 @@ public class JapTest {
 
         entityManagerFactory.close();
 	}
+	
+	private static void logic_merge(EntityManager entityManager, Member member, EntityTransaction entityTransaction) {
+		entityTransaction.commit();
+		entityTransaction.begin();
+		
+		entityManager.detach(member);
+		member.setAge(500); // 준영속 상태 확인: DB 값 변경 안됨
+		
+		Member member2 = member; // member2는 준영속 상태..? 일것 같음
+		/*
+		 * javax.persistence.PersistenceException: org.hibernate.id.IdentifierGenerationException: ids for this class must be manually assigned before calling save() 에러.......
+		 */
+//		member2.setId(null); // @ID 값이 없으면 merge가 될까? -> 안됨 @generatedValue 는 됨
+		Member mergeMember = entityManager.merge(member2); // mergeMemeber는 영속, merge2는 준영속?
+		
+		mergeMember.setAge(500); // 이게 바뀜
+		member2.setAge(1000); // 이건 안바뀜
+		
+		mergeMember.setAge(1000); // 이게 바뀜
+		System.out.println("동일성: " + (member2 == mergeMember)); // false
+		System.out.println("동등성: " + (member2.equals(mergeMember))); // true
+	}
+	
 	
 	private static void logic_dirtyChecking(EntityManager entityManager) {
 		for (int i = 0; i < 20; i++) {

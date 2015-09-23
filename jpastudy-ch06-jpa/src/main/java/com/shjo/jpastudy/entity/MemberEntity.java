@@ -24,4 +24,12 @@ public class MemberEntity {
 	@ManyToOne
 	@JoinColumn(name="team_id")
 	private TeamEntity teamEntity;
+	
+	public void setTeam(TeamEntity teamEntity) {
+		this.teamEntity = teamEntity;
+		
+		if(!teamEntity.getMemberList().contains(this)) {
+			teamEntity.getMemberList().add(this);
+		}
+	}
 }

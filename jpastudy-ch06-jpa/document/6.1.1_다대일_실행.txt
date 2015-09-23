@@ -1,0 +1,14 @@
+Hibernate: alter table MEMBER drop foreign key FKqf0bjopndu6n2u1ypdk4cny3v
+9월 23, 2015 11:26:20 오전 org.hibernate.tool.hbm2ddl.SchemaExport perform
+ERROR: HHH000389: Unsuccessful: alter table MEMBER drop foreign key FKqf0bjopndu6n2u1ypdk4cny3v
+9월 23, 2015 11:26:20 오전 org.hibernate.tool.hbm2ddl.SchemaExport perform
+ERROR: Table 'jpatestdb.member' doesn't exist
+Hibernate: drop table if exists hibernate_sequence
+Hibernate: drop table if exists MEMBER
+Hibernate: drop table if exists TEAM
+Hibernate: create table hibernate_sequence (next_val bigint)
+Hibernate: create table MEMBER (MEMBER_ID bigint not null, userName varchar(255), TEAM_ID bigint, primary key (MEMBER_ID))
+Hibernate: create table TEAM (TEAM_ID bigint not null, name varchar(255), primary key (TEAM_ID))
+Hibernate: alter table MEMBER add constraint FKqf0bjopndu6n2u1ypdk4cny3v foreign key (TEAM_ID) references TEAM (TEAM_ID)
+Hibernate: insert into hibernate_sequence values ( 1 )
+Hibernate: insert into hibernate_sequence values ( 1 )

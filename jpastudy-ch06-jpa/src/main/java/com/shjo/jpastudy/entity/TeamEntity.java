@@ -7,13 +7,16 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Entity
+@NoArgsConstructor
 @Table(name="TEAM")
 public class TeamEntity {
 	@Id
@@ -23,13 +26,11 @@ public class TeamEntity {
 	
 	private String name;
 	
-	@OneToMany(mappedBy="teamEntity")
+	@OneToMany
+	@JoinColumn(name="team_id")
 	private List<MemberEntity> memberList = new ArrayList<>();
 	
-	public void addMember(MemberEntity memberEntity) {
-		this.memberList.add(memberEntity);
-		if(memberEntity.getTeamEntity() != this) {
-			memberEntity.setTeam(this);
-		}
+	public TeamEntity(String name) {
+		this.name = name;
 	}
 }

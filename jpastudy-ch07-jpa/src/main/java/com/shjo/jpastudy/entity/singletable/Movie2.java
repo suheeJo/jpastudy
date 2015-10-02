@@ -1,15 +1,16 @@
-package com.shjo.jpastudy.entity.join;
+package com.shjo.jpastudy.entity.singletable;
 
 import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
 
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-//@Entity
+@Entity
 @DiscriminatorValue("M")
-public class Movie extends Item{
+public class Movie2 extends Item2{
 	private String disrector;
 	private String actor;
 }

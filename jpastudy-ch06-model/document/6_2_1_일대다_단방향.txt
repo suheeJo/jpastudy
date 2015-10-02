@@ -1,0 +1,27 @@
+Hibernate: alter table MEMBER drop foreign key FKobwt82vf9e12lua1lv653h66e
+9월 23, 2015 1:23:26 오후 org.hibernate.tool.hbm2ddl.SchemaExport perform
+ERROR: HHH000389: Unsuccessful: alter table MEMBER drop foreign key FKobwt82vf9e12lua1lv653h66e
+9월 23, 2015 1:23:26 오후 org.hibernate.tool.hbm2ddl.SchemaExport perform
+ERROR: Table 'jpatestdb.member' doesn't exist
+Hibernate: drop table if exists hibernate_sequence
+Hibernate: drop table if exists MEMBER
+Hibernate: drop table if exists TEAM
+Hibernate: create table hibernate_sequence (next_val bigint)
+Hibernate: create table MEMBER (member_id bigint not null, userName varchar(255), team_id bigint, primary key (member_id))
+Hibernate: create table TEAM (team_id bigint not null, name varchar(255), primary key (team_id))
+Hibernate: alter table MEMBER add constraint FKobwt82vf9e12lua1lv653h66e foreign key (team_id) references TEAM (team_id)
+Hibernate: insert into hibernate_sequence values ( 1 )
+Hibernate: insert into hibernate_sequence values ( 1 )
+9월 23, 2015 1:23:27 오후 org.hibernate.tool.hbm2ddl.SchemaExport execute
+INFO: HHH000230: Schema export complete
+Hibernate: select next_val as id_val from hibernate_sequence for update
+Hibernate: update hibernate_sequence set next_val= ? where next_val=?
+Hibernate: select next_val as id_val from hibernate_sequence for update
+Hibernate: update hibernate_sequence set next_val= ? where next_val=?
+Hibernate: select next_val as id_val from hibernate_sequence for update
+Hibernate: update hibernate_sequence set next_val= ? where next_val=?
+Hibernate: insert into MEMBER (userName, member_id) values (?, ?)
+Hibernate: insert into MEMBER (userName, member_id) values (?, ?)
+Hibernate: insert into TEAM (name, team_id) values (?, ?)
+Hibernate: update MEMBER set team_id=? where member_id=?
+Hibernate: update MEMBER set team_id=? where member_id=?

@@ -1,0 +1,11 @@
+Hibernate: drop table if exists Album
+Hibernate: drop table if exists Book
+Hibernate: drop table if exists Item
+Hibernate: drop table if exists Movie
+Hibernate: create table Album (artist varchar(255), id bigint not null, primary key (id))
+Hibernate: create table Book (author varchar(255), isbn varchar(255), book_id bigint not null, primary key (book_id))
+Hibernate: create table Item (DTYPE varchar(31) not null, id bigint not null auto_increment, name varchar(255), price integer not null, primary key (id))
+Hibernate: create table Movie (actor varchar(255), disrector varchar(255), id bigint not null, primary key (id))
+Hibernate: alter table Album add constraint FKcve1ph6vw9ihye8rbk26h5jm9 foreign key (id) references Item (id)
+Hibernate: alter table Book add constraint FKdfyglpp2d4bobi60ggek5rib6 foreign key (book_id) references Item (id)
+Hibernate: alter table Movie add constraint FK5sq6d5agrc34ithpdfs0umo9g foreign key (id) references Item (id)

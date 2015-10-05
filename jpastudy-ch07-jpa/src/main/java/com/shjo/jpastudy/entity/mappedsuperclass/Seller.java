@@ -7,7 +7,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@Entity
+//@Entity
 public class Seller extends BaseEntity {
 	private String shopName;
 }

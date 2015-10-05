@@ -1,0 +1,9 @@
+Hibernate: drop table if exists Album3
+Hibernate: drop table if exists Book3
+Hibernate: drop table if exists hibernate_sequence
+Hibernate: drop table if exists Movie3
+Hibernate: create table Album3 (item_id bigint not null, name varchar(255), price integer not null, artist varchar(255), primary key (item_id))
+Hibernate: create table Book3 (item_id bigint not null, name varchar(255), price integer not null, author varchar(255), isbn varchar(255), primary key (item_id))
+Hibernate: create table hibernate_sequence (next_val bigint)
+Hibernate: create table Movie3 (item_id bigint not null, name varchar(255), price integer not null, actor varchar(255), disrector varchar(255), primary key (item_id))
+Hibernate: insert into hibernate_sequence values ( 1 )

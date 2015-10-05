@@ -1,0 +1,2 @@
+Hibernate: drop table if exists Item2
+Hibernate: create table Item2 (DTYPE varchar(31) not null, id bigint not null auto_increment, name varchar(255), price integer not null, artist varchar(255), author varchar(255), isbn varchar(255), actor varchar(255), disrector varchar(255), primary key (id))

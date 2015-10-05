@@ -7,7 +7,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@Entity
+//@Entity
 public class Movie3 extends Item3{
 	private String disrector;
 	private String actor;

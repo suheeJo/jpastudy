@@ -1,0 +1,4 @@
+Hibernate: drop table if exists Member
+Hibernate: drop table if exists Seller
+Hibernate: create table Member (id bigint not null auto_increment, name varchar(255), email varchar(255), primary key (id))
+Hibernate: create table Seller (id bigint not null auto_increment, name varchar(255), shopName varchar(255), primary key (id))

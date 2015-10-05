@@ -10,7 +10,7 @@ import javax.persistence.InheritanceType;
 import lombok.Data;
 
 @Data
-@Entity
+//@Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public abstract class Item3 {
 	@Id

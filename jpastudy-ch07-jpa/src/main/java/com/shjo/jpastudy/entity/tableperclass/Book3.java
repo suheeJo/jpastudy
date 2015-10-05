@@ -7,7 +7,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@Entity
+//@Entity
 public class Book3 extends Item3{
 	private String author;
 	private String isbn;

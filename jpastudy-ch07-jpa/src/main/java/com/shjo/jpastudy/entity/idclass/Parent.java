@@ -10,7 +10,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@Entity
+//@Entity
 @IdClass(ParentId.class)
 public class Parent {
 	@Id

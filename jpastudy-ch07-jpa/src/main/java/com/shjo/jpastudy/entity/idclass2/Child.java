@@ -10,7 +10,7 @@ import javax.persistence.ManyToOne;
 import lombok.Data;
 
 @Data
-@Entity
+//@Entity
 @IdClass(ChildId.class)
 public class Child {
 	@Id

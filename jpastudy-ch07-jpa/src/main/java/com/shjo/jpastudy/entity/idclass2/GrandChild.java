@@ -11,7 +11,7 @@ import javax.persistence.ManyToOne;
 import lombok.Data;
 
 @Data
-@Entity
+//@Entity
 @IdClass(GrandChildId.class)
 public class GrandChild {
 	@Id

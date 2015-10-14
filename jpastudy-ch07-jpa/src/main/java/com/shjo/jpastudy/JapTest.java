@@ -17,16 +17,6 @@ public class JapTest {
         try {
         	transaction.begin();
         	
-        	Parent parent = new Parent();
-        	ParentId parentId = new ParentId("myId1", "myId2");
-        	parent.setId(parentId);
-        	parent.setName("parentName");
-        	manager.persist(parent);
-        	
-        	ParentId parentIdParam = new ParentId("myId1", "myId2");
-        	Parent getParent = manager.find(Parent.class, parentIdParam);
-        	System.out.println("find: " + getParent);
-        	
         	transaction.commit();
         }catch(Exception e) {
         	transaction.rollback();
